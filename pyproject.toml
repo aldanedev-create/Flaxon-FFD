@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=75.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flaxon-ffd"
+description = "Bridge FastAPI, Flask, and Django apps into Flaxon via ASGI mounting"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Aldane Hutchinson", email = "aldanehutchinson5@gmail.com"}]
+dependencies = [
+    "flaxon>=0.1.9",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+fastapi = ["fastapi>=0.100.0"]
+flask = ["flask>=3.0.0", "a2wsgi>=1.10.0"]
+django = ["django>=4.2.0"]
+all = ["fastapi>=0.100.0", "flask>=3.0.0", "a2wsgi>=1.10.0", "django>=4.2.0"]
+
+[tool.setuptools.dynamic]
+version = {attr = "flaxon_ffd.__version__"}
